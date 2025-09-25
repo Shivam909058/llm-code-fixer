@@ -4,9 +4,11 @@ An AI-powered tool that uses vector stores and LLMs (via OpenAI) to automaticall
 
 ## Installation
 
-Install globally for CLI access:
+Clone or download the repository to your local machine. Navigate to the project directory (e.g., the folder containing `main.js` and `cli.js`).
+
+Install dependencies:
 ```bash
-npm install -g llm-code-fixer
+npm install
 ```
 
 Set your OpenAI API key:
@@ -16,31 +18,60 @@ export OPENAI_API_KEY=your-api-key-here  # On Windows: set OPENAI_API_KEY=your-a
 
 ## Usage
 
-Run the CLI to fix a buggy file:
+### Primary Method: Run Directly with Node
+
+The simplest way to use the tool is to run the CLI script directly with Node.js. This avoids global installation issues and works out of the box.
+
+From the project directory:
 ```bash
-fix-code <path-to-buggy-file>
+node cli.js <path-to-buggy-file>
 ```
 
-- You'll be prompted for error logs and instructions (optional but recommended for better fixes).
-- The tool will iteratively fix issues (up to 5 rounds) and output the result.
-- Backups of original files are saved in your temp directory (e.g., `/tmp/llm_fixes` or `%TEMP%\llm_fixes`).
-
-### Example
+**Example:**
 ```bash
-fix-code buggy.js
+node cli.js test.js
 ```
 
-Paste errors/instructions when prompted, e.g.:
+- You'll be prompted for error logs and instructions (optional but recommended for better fixes)
+- The tool will iteratively fix issues (up to 5 rounds) and output the result
+- Backups of original files are saved in your temp directory (e.g., `/tmp/llm_fixes` or `%TEMP%\llm_fixes` on Windows)
+
+### Prompt Example
+When prompted, provide context like:
 ```
 Errors: ReferenceError: x is not defined
-Instructions: Add default values for variables.
+Instructions: Add default values for variables and fix the syntax errors.
+```
+
+### Optional: Global Installation via NPM
+
+If you prefer a global CLI command (`fix-code`), you can package and install it globally.
+
+1. In the project directory, ensure you have a proper `package.json` file
+2. Run:
+   ```bash
+   npm link
+   ```
+3. Then use:
+   ```bash
+   fix-code <path-to-buggy-file>
+   ```
+
+For sharing with others, publish to NPM:
+```bash
+npm publish --access public
+```
+
+Then others can install globally with:
+```bash
+npm install -g llm-code-fixer
 ```
 
 ## Inline Usage
 
 Import and use in your code:
 ```js
-import { tryq, fixAndTestFile } from 'llm-code-fixer';
+import { tryq, fixAndTestFile } from './main.js';
 
 // Wrap a function to auto-fix errors
 await tryq(myBuggyFunction);
@@ -48,23 +79,10 @@ await tryq(myBuggyFunction);
 
 ## Dependencies
 
-**Required:** OpenAI API key.  
-**Optional:** faiss-node for faster vector search (`npm install faiss-node`).
+**Required:** OpenAI API key  
+**Optional:** `faiss-node` for faster vector search (`npm install faiss-node`)
 
 ## License
 
 MIT
-
-## Development
-
-### Install Dependencies Locally (for Testing)
-In the `llm-code-fixer` directory:
-```bash
-npm install
-```
-
-### Test the CLI Locally
-```bash
-node fix-cli.js <path-to-some-buggy-file>
-```
-
+s and prompts

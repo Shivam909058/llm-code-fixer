@@ -34,10 +34,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-repo/llm-code-fixer.git"
+    "url": "https://github.com/Shivam909058/llm-code-fixer"
   },
   "bugs": {
-    "url": "https://github.com/your-repo/llm-code-fixer/issues"
+    "url": "https://github.com/Shivam909058/llm-code-fixer"
   },
-  "homepage": "https://github.com/your-repo/llm-code-fixer#readme"
+  "homepage": "https://github.com/Shivam909058/llm-code-fixer"
 }

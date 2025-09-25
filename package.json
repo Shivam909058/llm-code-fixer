@@ -1,0 +1,43 @@
+{
+  "name": "llm-code-fixer",
+  "version": "1.0.0",
+  "description": "An AI-powered code fixing tool using vector stores and LLM to automatically detect and fix bugs in JavaScript codebases.",
+  "main": "main.js",
+  "bin": {
+    "fix-code": "./fix-cli.js"
+  },
+  "scripts": {
+    "test": "node main.js",
+    "build-index": "node main.js"
+  },
+  "keywords": [
+    "code-fixer",
+    "ai",
+    "llm",
+    "bug-fixer",
+    "javascript",
+    "vector-store"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/parser": "^7.24.0",
+    "openai": "^4.0.0",
+    "recast": "^0.23.0",
+    "readline": "^1.3.0"
+  },
+  "optionalDependencies": {
+    "faiss-node": "^0.5.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-repo/llm-code-fixer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-repo/llm-code-fixer/issues"
+  },
+  "homepage": "https://github.com/your-repo/llm-code-fixer#readme"
+}
